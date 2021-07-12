@@ -1,0 +1,86 @@
+int Solution::uniquePathsWithObstacles(vector<vector<int> > &A) {
+  /*  
+    int row = A.size();
+    int col = A[0].size();
+    
+    int dp[row][col];
+    
+    bool flag = false;
+    
+    int i,j;
+    
+    //first row
+    for(int i=0;i<col;i++)
+    {
+        if(flag||A[0][i]==1)
+        {
+            flag = true;
+            dp[0][j]= 0;
+        }
+        
+        else
+        {
+            dp[0][j] =1;
+        }
+    }
+    
+    //firs col
+    
+    flag = false;
+    for(int j=0;j<row;j++)
+    {
+        if(flag||A[i][0]==1)
+        {
+            flag = true;
+            dp[i][0] = 0;
+        }
+        
+        else
+        {
+            dp[1][0] = 1;
+        }
+    }
+    
+     for(int i=1;i<row;++i)
+        {
+            for(int j=1;j<col;++j)
+            {
+                if(A[i][j]==1)
+                    dp[i][j] = 0;
+                else
+                    dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+    return dp[row-1][col-1];
+    
+    */
+    
+        int r = A.size();
+        int c = A[0].size();
+        
+        vector<vector<int>>dp(r,vector<int>(c));
+        
+        for(int i=0;i<r;i++){
+            if(A[i][0]==0)
+                dp[i][0]=1;
+            else
+                break;
+        }
+        
+        for(int i=0;i<c;i++){
+            if(A[0][i]==0)
+                dp[0][i]=1;
+            else
+                break;
+        }
+        
+        for(int i=1;i<r;i++){
+            for(int j=1;j<c;j++){
+                if(A[i][j]==1)
+                    continue;
+                else
+                    dp[i][j] = dp[i-1][j]+dp[i][j-1];
+            }
+        }
+        return dp[r-1][c-1];
+}
