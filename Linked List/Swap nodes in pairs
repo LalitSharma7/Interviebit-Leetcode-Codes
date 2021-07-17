@@ -1,0 +1,15 @@
+ListNode* Solution::swapPairs(ListNode* A) {
+    
+    ListNode*curr = A;
+    
+    if(!A || !A->next)
+        return A;
+    
+    while(curr!=NULL && curr->next!=NULL)
+    {
+        swap(curr->val, curr->next->val);
+        curr = curr->next->next;
+    }
+    
+    return A;
+}
