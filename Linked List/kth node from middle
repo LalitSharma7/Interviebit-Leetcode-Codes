@@ -1,0 +1,27 @@
+int Solution::solve(ListNode* A, int B) {
+    int n=0;
+    ListNode* temp=A;
+
+   while(temp)
+   {
+      n++;
+      temp=temp->next;
+   }
+
+   int mid=n/2+1;
+
+   int start=mid-B;
+    temp=A;
+
+    if(start<=0)
+   {
+    return -1;
+   }
+
+   for(int i=0;i<start-1;i++)
+   {
+    temp=temp->next;
+   }
+
+   return temp->val;
+}
