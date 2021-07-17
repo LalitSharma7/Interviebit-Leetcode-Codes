@@ -1,0 +1,26 @@
+ListNode* Solution::reverseList(ListNode* A, int B) {
+     if (!A)
+        return NULL;
+    ListNode* current = A;
+    ListNode* next = NULL;
+    ListNode* prev = NULL;
+    int count = 0;
+ 
+    /*reverse first k nodes of the linked list */
+    while (current != NULL && count < B) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+        count++;
+    }
+ 
+    /* next is now a pointer to (k+1)th node
+    Recursively call for the list starting from current.
+    And make rest of the list as next of first node */
+    if (next != NULL)
+        A->next = reverseList(next, B);
+ 
+    /* prev is new head of the input list */
+    return prev;
+}
