@@ -15,3 +15,12 @@ int Solution::canCompleteCircuit(const vector<int> &A, const vector<int> &B) {
         return (total_surplus < 0) ? -1 : S;
     
 }
+
+
+/*Knowledge center.
+Cost can not be greater than gas as if it happens vehicle will not move.
+
+total surplus to check that it is not negative as whole.
+
+surplus to check so that we get gas more than cost if surplus is negative we will check the next stop so that it can work
+*/
