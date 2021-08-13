@@ -65,6 +65,11 @@ int findleft(vector<int>a,int x)
 int Solution::findCount(const vector<int> &A, int B) {
     int right = findright(A,B);
     int left = findleft(A,B);
+    if(right == -1 && left == -1)
+    {
+     return 0; 
+        
+    }
     
     return right-left+1;
 }
